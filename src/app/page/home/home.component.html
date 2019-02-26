@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+	<div class="col-4 col-md-2 col-lg-2 text-center mb-4">
+		<div class="ml-1 mr-1">
+			<img class= "img-fluid" src="assets/img/logo_l.gif" alt= "alphaTube logo" aria-hidden="true">
+		</div>
+	</div>
+</div>
+
+<h2 *ngIf="!notFirst" class="text-center" aria-labelledby="Welcome to AlphaTube">Welcome to AlphaTube</h2>
+<h2 *ngIf="notFirst" class="text-center" aria-labelledby="Welcome back to Alphatube">Welcome back to AlphaTube</h2>
+<h4 *ngIf="notFirst"  class="text-center"  aria-labelledby="Do you want to see the last video watched">
+	<a [routerLink] ="['/videopage',notFirst]"> Do you want to see the last video watched?</a>
+</h4>
+<h5 class="text-center font-italic" text-align="center" attr.aria-label="Proposed by Bagnacavallo Team">Proposed by Bagnacavallo Team</h5>
+<div class="row text-center text-sm-left" role="main">
+	<div class="col-12 col-lg-6 col-md-6 my-2 p-0" *ngFor="let video of videos">
+		<a [routerLink]="['/videopage',video.videoID]">
+			<div class="row shadow-sm mx-2 py-2 border-primary bg-white border h-100 align-items-center">
+				<div class="col-12 col-lg-6 col-md-12 col-sm-6 mx-0 px-0">
+					<img class="container-fluid" aria-hidden="true" src="https://i.ytimg.com/vi/{{video.videoID}}/mqdefault.jpg" alt="Card image cap">
+				</div>
+				<div class="col-12 col-lg-6 col-md-12 col-sm-6 mx-0 px-0">
+					<div class="container-fluid" >
+						<h6 class="card-title" attr.aria-label="{{video.title}}">{{video.title}}</h6>
+						<p class="card-subtitle" attr.aria-label="{{video.artist}}">{{video.artist}}</p>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
